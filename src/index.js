@@ -15,6 +15,8 @@ class Board extends React.Component {
       <Square
        value={this.props.squares[i]}
        onClick={() => this.props.onClick(i)}
+       col={(i % 3) + 1}
+       row={Math.floor(i / 3) + 1}
        />
        );
   }
@@ -69,6 +71,7 @@ class Game extends React.Component {
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     });
+    // console.info(this.state.history.squares[i])
   }
   jumpTo(step){
     this.setState({
